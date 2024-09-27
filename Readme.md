@@ -36,7 +36,7 @@ background color, and export format of the desired image. It supports PNG, JPEG,
 4. Run the application:
 
    ```bash
-   python app.py
+   python app/app.py
    ```
 
 The application will be accessible at `http://localhost:5000`.
@@ -97,7 +97,7 @@ set MAX_WIDTH=2000
 After setting these environment variables, you can run the application as usual:
 
 ```bash
-python app.py
+python app/app.py
 ```
 
 Application will use the values of the environment variables instead of the values defined in the `config.py` file.
@@ -105,7 +105,56 @@ Application will use the values of the environment variables instead of the valu
 Also, it can be launched as a single line
 
 ```bash
-DEFAULT_BG_COLOR=lightblue MAX_WIDTH=2000 python app.py
+DEFAULT_BG_COLOR=lightblue MAX_WIDTH=2000 python app/app.py
+```
+
+## Docker Setup
+
+This application can be run using Docker. Follow the steps below to set it up:
+
+### Prerequisites
+
+- Docker installed on your machine. If not, you can download it from [here](https://www.docker.com/get-started).
+- Docker Compose is now part of Docker, it should ne available if you successfully install
+  Docker [compose documentation](https://docs.docker.com/compose/install/).
+
+### Run the Docker container:
+
+```bash
+docker-compose up
+```
+
+The application will be accessible at `http://localhost:2080`.
+
+### Environment Variables
+
+you can set these environment variables directly in the terminal before running the Docker container:
+
+```bash
+DEFAULT_BG_COLOR=lightblue MAX_WIDTH=2000 docker compose up
+````
+
+You can set environment variables for the application directly in the compose file in environment section :
+
+```yaml
+environment:
+  - DEFAULT_BG_COLOR=lightblue
+  - MAX_WIDTH=2000
+```
+
+or by providing an `.env` file. In this case, PARAMETER will be available as ${PARAMETER} in dockerfile
+
+.env:
+
+```
+DEFAULT_BG_COLOR=lightblue
+MAX_WIDTH=2000
+```
+
+```yaml
+environment:
+  - DEFAULT_BG_COLOR=${DEFAULT_BG_COLOR}
+  - MAX_WIDTH={MAX_WIDTH}
 ```
 
 ## Contributing
