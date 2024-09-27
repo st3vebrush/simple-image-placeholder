@@ -1,0 +1,4 @@
+Flask==3.0.3
+Flask-Limiter==3.8.0
+pillow==10.4.0
+svgwrite==1.4.3
