@@ -1,0 +1,12 @@
+services:
+  unit:
+    image: unit:python
+    container_name: unit-python
+    ports:
+      - "2080:80"
+    volumes:
+      - ./:/app
+      - ./config/config.json:/docker-entrypoint.d/config.json:ro
+    environment:
+      - DOCUMENT_ROOT=/app
+    restart: unless-stopped

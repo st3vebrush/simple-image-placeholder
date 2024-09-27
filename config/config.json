@@ -1,0 +1,16 @@
+{
+  "listeners": {
+    "*:80": {
+      "pass": "applications/flask"
+    }
+  },
+  "applications": {
+    "flask": {
+      "type": "python 3.12",
+      "path": "/app/",
+      "home": "/app/venv/",
+      "module": "wsgi",
+      "callable": "app"
+    }
+  }
+}
