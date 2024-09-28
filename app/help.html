@@ -1,0 +1,86 @@
+<!--
+  ~ Copyright (c) 2024
+  ~ by St3vebrush <steve@d3velopment.fr> with love for D3velopment
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Simple Image Placeholder Help</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        code {
+            background-color: #DDD;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        a {
+            color: #006bEE;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1>Simple Image Placeholder Help</h1>
+<p>This application generates placeholder images based on input parameters provided via the query string.</p>
+
+<h2>Usage</h2>
+<p>To generate an image, make a GET request to the root URL (<a href="/"><code>/</code></a>) with the desired parameters
+    in the query string.</p>
+
+<h3>Parameters</h3>
+<ul>
+    <li>
+        <strong>width</strong> (optional, default: 320): The width of the image in pixels. It must be a positive integer
+        between 1 and the maximum width allowed (defined in the <code>config.py</code> file, default is 1920).
+    </li>
+    <li>
+        <strong>height</strong> (optional, default: 200): The height of the image in pixels. It must be a positive
+        integer between 1 and the maximum height allowed (defined in the <code>config.py</code> file, default is 1080).
+    </li>
+    <li>
+        <strong>text</strong> (optional, default: "Hello, World!"): The text to be displayed on the image. It must be a
+        string with a maximum length of 255 characters (defined in the <code>config.py</code> file).
+    </li>
+    <li>
+        <strong>font_size</strong> (optional, default: 30): The font size of the text. It must be a positive integer
+        between 1 and the maximum font size allowed (defined in the <code>config.py</code> file, default is 100).
+    </li>
+    <li>
+        <strong>bg_color</strong> (optional, default: "grey"): The background color of the image. It can be a valid
+        named color or a valid hex color code (3 or 6 digits, without the '#' character).
+    </li>
+    <li>
+        <strong>format</strong> (optional, default: "webp"): The format of the exported image. It can be one of the
+        following: "jpeg", "png", "webp", or "svg".
+    </li>
+</ul>
+
+<h3>Examples</h3>
+<ul>
+    <li>
+        <p>Generate a PNG image with the text "Hello!" on a blue background, with a font size of 40, and dimensions of
+            800x600 pixels:</p>
+        <code><a href="/?width=800&height=600&text=Hello!&font_size=40&bg_color=blue&format=png">http(s)://your.end.point/?width=800&height=600&text=Hello!&font_size=40&bg_color=blue&format=png</a></code>
+    </li>
+    <li>
+        <p>Generate a SVG image with the text "Welcome!" on a light grey background, with a font size of 20, and
+            dimensions of 400x300 pixels:</p>
+        <a href="/?width=400&height=300&text=Welcome!&font_size=20&bg_color=F00&format=svg"><code>http(s)://your.end.point/?width=400&height=300&text=Welcome!&font_size=20&bg_color=F00&format=svg</code></a>
+    </li>
+</ul>
+
+<h2>Configuration</h2>
+<p>The application's configuration is defined in the <code>config.py</code> file. You can customize various parameters
+    to suit your needs. For more information, please refer to the <a
+            href="https://github.com/st3vebrush/simple-image-placeholder/blob/main/Readme.md">README.md</a> file.</p>
+</body>
+</html>

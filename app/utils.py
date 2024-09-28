@@ -1,5 +1,5 @@
 #  Copyright (c) 2024
-#  by St3vebrush with love for D3velopment
+#  by St3vebrush <steve@d3velopment.fr> with love for D3velopment
 
 import html
 import io
