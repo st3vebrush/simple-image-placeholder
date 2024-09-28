@@ -1,5 +1,5 @@
 #  Copyright (c) 2024
-#  by St3vebrush with love for D3velopment
+#  by St3vebrush <steve@d3velopment.fr> with love for D3velopment
 
 # app.py
 
@@ -73,6 +73,30 @@ def favicon():
     - Flask response: The favicon.ico file with the appropriate MIME type.
     """
     return send_from_directory(app.root_path, 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+
+@app.route('/help')
+def help():
+    """
+    Serve the help file.
+
+    Returns:
+    - Flask response: The help file with the appropriate MIME type.
+    """
+    return send_from_directory(app.root_path, 'help.html', mimetype='text/html')
+
+
+@app.route('/robots.txt')
+def noindex():
+    """
+    Serve the robots.txt file to disallow web crawling.
+
+    This endpoint returns a robots.txt file that instructs web crawlers to disallow
+    crawling of the entire site and sets a crawl delay of 60 seconds.
+    Returns:
+    - Flask response: The robots.txt file with the appropriate MIME type.
+    """
+    return send_from_directory(app.root_path, 'robots.txt', mimetype='text/plain')
 
 
 @app.route('/', methods=['GET'])
