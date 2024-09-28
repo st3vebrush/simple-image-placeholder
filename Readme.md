@@ -12,6 +12,7 @@ background color, and export format of the desired image. It supports PNG, JPEG,
 - Error handling and generation of error images.
 - Rate limiting to prevent abuse.
 - Support for PNG, JPEG, WEBP, and SVG formats - defaults to WEBP.
+- Cache-Control. Header is set to 'max-age=60'
 
 ## Installation
 

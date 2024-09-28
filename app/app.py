@@ -1,12 +1,11 @@
 #  Copyright (c) 2024
 #  by St3vebrush <steve@d3velopment.fr> with love for D3velopment
 
-# app.py
-
 import io
 import os
 
 import svgwrite
+# app.py
 from PIL import Image, ImageDraw, ImageFont, ImageColor
 from flask import Flask, request, send_file, send_from_directory
 from flask_limiter import Limiter
@@ -59,9 +58,29 @@ limiter = Limiter(get_remote_address, app=app, storage_uri="memory://")
 # Load the default font
 default_font = ImageFont.load_default()
 
+
 """
 Routes
 """
+
+
+@app.after_request
+def add_header(response):
+    """
+    Add a Cache-Control header to the response to control caching behavior.
+
+    This function is called after each request to add a Cache-Control header
+    to the response. The header is set to 'max-age=60', which means that the
+    response can be cached for up to 60 seconds.
+
+    Parameters:
+    - response (flask.Response): The response object to which the header will be added.
+
+    Returns:
+    - flask.Response: The modified response object with the Cache-Control header.
+    """
+    response.headers['Cache-Control'] = 'max-age=60'
+    return response
 
 
 @app.route('/favicon.ico')
@@ -216,7 +235,8 @@ def generate_svg(width, height, text, font_size, background_color, font_color, f
     # Add the text element
     # Sanitize the text to remove any XML tags and encode special characters
     text = sanitize_for_svg(text)
-    dwg.add(dwg.text(text, insert=('50%', y), text_anchor="middle", font_size=font_size, fill=font_color))
+    dwg.add(dwg.text(text, insert=('50%', y), text_anchor="middle", font_size=font_size, fill=font_color,
+                     font_family="sans-serif"))
 
     # Save the SVG drawing to a BytesIO object
     svg_data = dwg.tostring().encode()
