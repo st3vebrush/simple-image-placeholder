@@ -50,9 +50,16 @@ example:
 <img src="http://localhost:5000/?width=800&height=600&text=Hello!&font_size=40&bg_color=blue&format=png"
      alt="great image placeholder">
 ```
-
 This will generate a PNG image with the text "Hello!" on a blue background, with a font size of 40, and dimensions of
 800x600 pixels.
+
+For more information about the available parameters and their usage, you can access the help page by making a GET
+request to the /help endpoint.
+The help page provides detailed documentation and examples.
+
+```
+http://localhost:5000/help
+```
 
 ## Configuration
 
