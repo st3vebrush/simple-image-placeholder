@@ -31,7 +31,7 @@ background color, and export format of the desired image. It supports PNG, JPEG,
 3. Install the required dependencies:
 
    ```bash
-   pip install -r requirements.txt
+   pip install -r app/requirements.txt
    ```
 
 4. Run the application:
@@ -129,10 +129,10 @@ This application can be run using Docker. Follow the steps below to set it up:
 ### Run the Docker container:
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
-The application will be accessible at `http://localhost:2080`.
+The application will be accessible at `http://localhost:8081`.
 
 ### Environment Variables
 
@@ -142,12 +142,13 @@ you can set these environment variables directly in the terminal before running 
 DEFAULT_BG_COLOR=lightblue MAX_WIDTH=2000 docker compose up
 ````
 
-You can set environment variables for the application directly in the compose file in environment section :
+You can set environment variables for the application directly in the compose file in environment section:
 
 ```yaml
 environment:
   - DEFAULT_BG_COLOR=lightblue
   - MAX_WIDTH=2000
+  - TZ=Europe/Paris
 ```
 
 or by providing an `.env` file. In this case, PARAMETER will be available as ${PARAMETER} in dockerfile
@@ -162,7 +163,8 @@ MAX_WIDTH=2000
 ```yaml
 environment:
   - DEFAULT_BG_COLOR=${DEFAULT_BG_COLOR}
-  - MAX_WIDTH={MAX_WIDTH}
+  - MAX_WIDTH=${MAX_WIDTH}
+  - TZ=Europe/Paris
 ```
 
 ## Contributing

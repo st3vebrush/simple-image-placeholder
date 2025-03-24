@@ -3,7 +3,7 @@
 
 import sys
 
-sys.path = ['/app/app'] + sys.path
+sys.path = ['/app'] + sys.path
 
 from app import app as app
 
